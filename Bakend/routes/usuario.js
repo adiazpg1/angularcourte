@@ -1,11 +1,8 @@
 var express = require('express');
 var bcrypt = require('bcryptjs');
 var jwt = require('jsonwebtoken');
-
 var mdAutenticacion = require('../middlewares/autenticacion');
-
 var app = express();
-
 var Usuario = require('../models/usuario');
 
 // ==========================================
@@ -15,6 +12,7 @@ app.get('/', (req, res, next) => {
 
     var desde = req.query.desde || 0;
     desde = Number(desde);
+
     Usuario.find({}, 'nombre email img role')
         .skip(desde)
         .limit(5)
@@ -30,12 +28,17 @@ app.get('/', (req, res, next) => {
                 }
 
                 Usuario.count({}, (err, conteo) => {
+
                     res.status(200).json({
                         ok: true,
                         usuarios: usuarios,
                         total: conteo
                     });
-                });
+
+                })
+
+
+
 
             });
 });
@@ -101,7 +104,7 @@ app.put('/:id', mdAutenticacion.verificaToken, (req, res) => {
 // ==========================================
 // Crear un nuevo usuario
 // ==========================================
-app.post('/', mdAutenticacion.verificaToken, (req, res) => {
+app.post('/', (req, res) => {
 
     var body = req.body;
 

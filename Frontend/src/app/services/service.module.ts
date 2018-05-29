@@ -8,6 +8,7 @@ import {
   SharedService
  } from './service.index';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginGuardGuard } from './guards/login-guard.guard';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     SettingsService,
     SidebarService,
     SharedService,
-    UsuarioService
+    UsuarioService,
+    LoginGuardGuard
   ],
   declarations: []
 })

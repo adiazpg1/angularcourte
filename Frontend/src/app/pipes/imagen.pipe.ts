@@ -9,7 +9,7 @@ export class ImagenPipe implements PipeTransform {
   transform(img: string, tipo: string = 'usuarios', args?: any): any {
     let url = URL_SERVICIOS + '/img';
     if (!img) {
-      return url + '/usuarios/sad1'
+      return url + '/usuarios/sad1';
     }
 
     if (img.indexOf('https') >= 0) {
@@ -19,20 +19,20 @@ export class ImagenPipe implements PipeTransform {
 
     switch (tipo) {
       case 'usuarios':
-        url + '/usuarios/' + img;
+      url = url + '/usuarios/' + img;
         break;
       case 'medicos':
-        url + '/medicos/' + img;
+      url = url + '/medicos/' + img;
         break;
       case 'hospitales':
-        url + '/hospitales/' + img;
+      url = url + '/hospitales/' + img;
         break;
       default:
         console.log('Tipo de usuario no existe ')
         return url + '/usuarios/sad1';
     }
 
-    return  url;
+    return url;
   }
 
 }

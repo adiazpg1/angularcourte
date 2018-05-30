@@ -18,6 +18,7 @@ import { ServiceModule } from './services/service.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './login/register.component';
+import { ModelCreateComponent } from './components/modal-create/model-create/model-create.component';
 
 
 
@@ -26,7 +27,8 @@ import { RegisterComponent } from './login/register.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ModelCreateComponent
   ],
   imports: [
     BrowserModule,

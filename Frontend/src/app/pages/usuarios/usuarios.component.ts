@@ -17,7 +17,7 @@ export class UsuariosComponent implements OnInit {
   totalRegistros: number = 0;
   cargando: boolean = true;
 
-  constructor(public _usuarioService: UsuarioService, 
+  constructor(public _usuarioService: UsuarioService,
    public _modalUploadService: ModalUploadService) { }
 
   ngOnInit() {
